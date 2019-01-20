@@ -1,7 +1,11 @@
 <template>
   <div id="app">
     <!-- 头部固定栏 -->
-    <mt-header class="app-top" fixed title="vue-冰冰"></mt-header>
+    <mt-header class="app-top" fixed title="vue">
+      <span slot="left" @click="goBack" v-show="flag">
+        <mt-button icon="back">返回</mt-button>
+      </span>
+    </mt-header>
 
     <!-- 中间内容区域 -->
     <transition name="cont">
@@ -19,7 +23,9 @@
 				<span class="mui-tab-label">消息</span>
 			</router-link>
 			<router-link class="mui-control-item-a" to="/shopcart">
-				<span class="mui-icon mui-icon-extra mui-icon-extra-cart"><span class="mui-badge">9</span></span>
+				<span class="mui-icon mui-icon-extra mui-icon-extra-cart">
+          <span id="badge" class="mui-badge">{{$store.getters.addCount}}</span>
+        </span>
 				<span class="mui-tab-label">购物车</span>
 			</router-link>
 			<router-link class="mui-control-item-a" to="/prolife">
@@ -32,7 +38,28 @@
 </template>
 <script>
 export default {
-  
+  data(){
+    return {
+      flag: false
+    }
+  },
+  created(){
+    this.flag = this.$route.path === '/home' ? false : true;
+  },
+  methods: {
+    goBack(){
+      this.$router.go(-1);
+    }
+  },
+  watch: {
+    '$route.path': function(newVal){
+      if(newVal === '/home'){
+        this.flag = false;
+      }else{
+        this.flag = true;
+      }
+    }
+  }
 }
 </script>
 

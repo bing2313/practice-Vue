@@ -2,7 +2,6 @@
 import Vue from 'vue'
 import App from './App.vue'
 import router from './router'
-import mintUi from 'mint-ui'
 import moment from 'moment'
 import resource from 'vue-resource'
 // 安装缩略图插件
@@ -10,6 +9,10 @@ import VuePreview from 'vue-preview'
 import 'mint-ui/lib/style.min.css'
 import '../node_modules/mui/css/mui.min.css'
 import '../node_modules/mui/css/icons-extra.css'
+// 导入vuex
+import store from './store.js'
+import mintUi from 'mint-ui'
+
 
 // 注册一下
 Vue.config.productionTip = false
@@ -33,5 +36,6 @@ Vue.http.emulateJSON = true;
 // vm实例
 new Vue({
   router,
-  render: h => h(App)
+  store,
+  render: h => h(App),
 }).$mount('#app')

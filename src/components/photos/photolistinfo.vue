@@ -40,7 +40,7 @@ export default {
   methods: {
     getphotoinfo(){ // 获取单个图片详细信息
       this.$http.get('api/getimageInfo/' + this.id).then(res => {
-        console.log(res.body);
+        // console.log(res.body);
         this.photoinfo = res.body.message[0];
       })
     },
@@ -79,11 +79,10 @@ export default {
       justify-content: space-between;
     }
     .imginfo {
-      display: flex;
-      justify-content: space-around;
       img {
-        width: 50%;
-      }
+        width: 100%;
+        display: block;
+      } 
     }
   }
 </style>

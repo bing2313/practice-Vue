@@ -8,8 +8,7 @@
       <span>浏览： {{onenewsinfo.click}} 次</span>
     </p>
     <hr>
-    <div class="newsContent" v-html="onenewsinfo.content">
-    </div>
+    <div class="newsContent" v-html="onenewsinfo.content"></div>
 
     <!-- 评论区组件 -->
     <comment :id="id"></comment>

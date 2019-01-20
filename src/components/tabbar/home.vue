@@ -1,13 +1,9 @@
 <template>
   <div id="home">
     <!-- 轮播图部分 -->
-    <mt-swipe class="slideshow" :auto="4000">
-      <mt-swipe-item v-for="item in slideshows" :key="item.id">
-        <img :src="item.img" alt="">
-      </mt-swipe-item>
-    </mt-swipe>
-    <!-- <span>随便的内容</span> -->
-
+    <!-- 用父传子的形式将轮播图列表图片传递给轮播图子组件 -->
+    <slideshow :slideshows="slideshows"></slideshow>
+    
     <!-- 九宫格内容 -->
     <ul class="mui-table-view mui-grid-view mui-grid-9 ninegezi">
       <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3">
@@ -48,14 +44,18 @@
       </li>
   </ul>
 
-
-
   </div>
 </template>
 <script>
 // 导入mint-ui中的Toast
 import { Toast } from 'mint-ui'
+// 导入轮播图组件
+import slideshow from '../common/slideshow.vue'
 export default {
+  components: {
+    // 注册轮播图组件
+    slideshow
+  },
   data(){
     return {
       slideshows:[]
@@ -83,13 +83,6 @@ export default {
 </script>
 <style lang="scss" scoped>
 #home{
-  .slideshow{
-    height: 30vh;
-    img{
-      width: 100%;
-      height: 30vh;
-    }
-  }
   .ninegezi{
     background-color: #fff;
     li{
