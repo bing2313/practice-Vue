@@ -8,7 +8,7 @@
   </div>
 </template>
 <script>
-import mui from '../../../node_modules/mui/js/mui'
+import mui from '../../../node_modules/mui/js/mui.min'
 
 export default {
   data() {

@@ -72,7 +72,7 @@ export default {
       this.$store.commit('removeFormCar',id);
     },
     selectedChange(id,val){ // 监听switch框的开关
-      console.log(id +'-----'+val);
+      // console.log(id +'-----'+val);
       this.$store.commit('updateGoodsSelected',{id: id,selected: val})
     }
   }

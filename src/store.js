@@ -75,7 +75,7 @@ export default new Vuex.Store({
       })
       return obj;
     },
-    getGoodsSelect(state){ // 根据商品的id，来计算一下是否选中
+    getGoodsSelect(state){ // 根据商品的id，来计算一下商品是否选中
       let o = {};
       state.car.forEach(item=>{
         o[item.id] = item.selected;
